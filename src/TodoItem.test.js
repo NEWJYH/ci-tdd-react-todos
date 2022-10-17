@@ -40,5 +40,23 @@ describe('<TodoItem />', () => {
         const {span} = setup({todo : { ...sampleTodo, done: false } });
         expect(span).not.toHaveStyle('text-decoration: line-through;');
     });
+    // 클릭 토클 span 이벤트 확인 
+    it('calls onToggle', () => {
+        // 함수 흉내내는 아이가 필요
+        const onToggle = jest.fn();
+        const { span } = setup({ onToggle });
+        // 클릭 이벤트 호출
+        fireEvent.click(span);
+        // 기본값이 1로 호출이 됬느냐 라는 부분을 확인하는 부분
+        expect(onToggle).toBeCalledWith(sampleTodo.id);
+    });
 
+
+    it('calls onRemove', () => {
+        const onRemove = jest.fn();
+        const { button } = setup({ onRemove });
+        // 삭제 버튼 이벤트
+        fireEvent.click(button);
+        expect(onRemove).toBeCalledWith(sampleTodo.id);
+    });
 });
