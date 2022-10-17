@@ -7,6 +7,7 @@ describe('<TodoForm />', ()=> {
     // 없이도 호출하고 있어도 호출할수 있도록 ...props로 생성
     // setup을 통해서 작업을 할수 있게끔 만들어주면 됨 
     // 내용이 어려울 경우 그대로 둬도 됨
+    // ... <- 이걸 알아야함 가변인자매개변수 같은 느낌임 
     const setup = (props = {}) => {
         const utils = render(<TodoForm {... props} />);
         const { getByText, getByPlaceholderText } = utils;
