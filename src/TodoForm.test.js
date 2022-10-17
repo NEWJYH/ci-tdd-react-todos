@@ -11,7 +11,7 @@ describe('<TodoForm />', ()=> {
         const utils = render(<TodoForm {... props} />);
         const { getByText, getByPlaceholderText } = utils;
         const input = getByPlaceholderText('할 일을 입력하세요'); // input이 있는지 확인
-        const button = geByText('등록'); // button 이 있는지 확인
+        const button = getByText('등록'); // button 이 있는지 확인
         return {
             ...utils,
             input,
